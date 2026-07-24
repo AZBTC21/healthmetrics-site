@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VitalMtrx — Your Daily Readiness Score</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal: #2dd4bf;
+      --purple: #a78bfa;
+      --orange: #fb923c;
+      --bg: #08090f;
+      --card: rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.08);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Background glow */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 20% 10%, rgba(45,212,191,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 80% 20%, rgba(167,139,250,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 50% 90%, rgba(251,146,60,0.08) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+    /* Nav */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+    }
+    .logo { font-size: 1.1rem; font-weight: 700; color: var(--teal); letter-spacing: -0.02em; }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--text); }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 80px 0 64px;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(45,212,191,0.12);
+      border: 1px solid rgba(45,212,191,0.25);
+      color: var(--teal);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff 40%, var(--teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 36px;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* App preview placeholder */
+    .preview {
+      margin: 56px auto 0;
+      max-width: 320px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: 48px 32px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .ring {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 10px solid var(--card);
+      border-top-color: var(--teal);
+      border-right-color: var(--purple);
+      margin: 0 auto 16px;
+      position: relative;
+    }
+    .ring-score {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    /* Features */
+    .features { padding: 80px 0; }
+    .section-label {
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+    h2 {
+      text-align: center;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 48px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      backdrop-filter: blur(12px);
+    }
+    .card-icon {
+      font-size: 1.8rem;
+      margin-bottom: 14px;
+    }
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .card p { font-size: 0.88rem; color: var(--muted); }
+
+    /* Privacy */
+    .privacy-banner {
+      background: rgba(167,139,250,0.07);
+      border: 1px solid rgba(167,139,250,0.18);
+      border-radius: 20px;
+      padding: 36px;
+      text-align: center;
+      margin: 0 0 80px;
+    }
+    .privacy-banner h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+    .privacy-banner p { font-size: 0.9rem; color: var(--muted); }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <span class="logo">VitalMtrx</span>
+      <a href="support.html">Support</a>
+    </nav>
+
+    <section class="hero">
+      <div class="badge">Available on iOS</div>
+      <h1>Know how your<br>body is performing</h1>
+      <p class="subtitle">VitalMtrx turns your Apple Health data into a single daily Readiness Score — so you can train smarter, sleep better, and recover faster.</p>
+      <a class="cta" href="#">
+        <!-- Replace # with your App Store link -->
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download on the App Store
+      </a>
+
+      <div class="preview">
+        <div class="ring">
+          <div class="ring-score">82</div>
+        </div>
+        <strong style="color:var(--text)">Today's Readiness</strong><br>
+        Sleep · Recovery · Activity · Fitness
+      </div>
+    </section>
+
+    <section class="features">
+      <p class="section-label">Features</p>
+      <h2>Everything you need to<br>understand your health</h2>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon">🏅</div>
+          <h3>Daily Readiness Score</h3>
+          <p>A single 0–100 score built from sleep, recovery, activity, and fitness — personalized with your own weights.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">😴</div>
+          <h3>Sleep & Recovery</h3>
+          <p>Track sleep duration and heart rate variability trends to understand how well you're actually recovering.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📈</div>
+          <h3>Trends & Charts</h3>
+          <p>7-day and 30-day trend charts across all metrics, powered by Swift Charts for a clear picture over time.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💡</div>
+          <h3>Personalized Insights</h3>
+          <p>Correlation analysis and smart insights explain what's actually driving your score up or down.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏋️</div>
+          <h3>Workout History</h3>
+          <p>Review past workouts alongside your health trends to see how training load affects your readiness.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">⚙️</div>
+          <h3>Customizable Weights</h3>
+          <p>Adjust how much sleep, recovery, activity, and fitness contribute to your score — with a live preview.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="privacy-banner">
+      <h3>🔒 Your data never leaves your device</h3>
+      <p>VitalMtrx reads from Apple Health and stores everything locally. No account required. No data sold. Ever.</p>
+    </div>
+
+    <footer>
+      <span>© 2026 VitalMtrx</span>
+      <span>
+        <a href="support.html">Support</a>
+      </span>
+    </footer>
+  </div>
+</body>
+</html>

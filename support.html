@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> — Support</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal: #2dd4bf;
+      --purple: #a78bfa;
+      --bg: #08090f;
+      --card: rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.08);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 40% at 15% 15%, rgba(45,212,191,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 85% 25%, rgba(167,139,250,0.08) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+    }
+    .logo { font-size: 1.1rem; font-weight: 700; color: var(--teal); letter-spacing: -0.02em; text-decoration: none; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+    nav a:hover { color: var(--text); }
+
+    .page-header { padding: 48px 0 40px; }
+    .page-header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+    .page-header p { color: var(--muted); font-size: 1rem; }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      margin: 48px 0 16px;
+    }
+
+    /* FAQ */
+    details {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    details[open] { border-color: rgba(45,212,191,0.2); }
+    summary {
+      font-weight: 600;
+      font-size: 0.95rem;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      color: var(--teal);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    details[open] summary::after { transform: rotate(45deg); }
+    .answer {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* Contact */
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 48px;
+    }
+    .contact-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+    .contact-card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 16px; }
+    .contact-card a {
+      display: inline-block;
+      background: var(--teal);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .contact-card a:hover { opacity: 0.85; }
+
+    /* Privacy */
+    .prose { font-size: 0.9rem; color: var(--muted); line-height: 1.8; margin-bottom: 48px; }
+    .prose p { margin-bottom: 12px; }
+    .prose strong { color: var(--text); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a class="logo" href="index.html">HealthMetrics</a>
+      <a href="index.html">Home</a>
+    </nav>
+
+    <div class="page-header">
+      <h1>Support</h1>
+      <p>Get help with HealthMetrics — answers to common questions and a direct line to reach us.</p>
+    </div>
+
+    <!-- FAQ -->
+    <h2>Frequently Asked Questions</h2>
+
+    <details>
+      <summary>Why isn't HealthMetrics showing any data?</summary>
+      <div class="answer">
+        HealthMetrics reads data from the Apple Health app. Make sure you have granted HealthMetrics permission to read Health data by going to <strong>Settings → Health → Data Access &amp; Devices → HealthMetrics</strong> and enabling the categories you want tracked. Data will appear after the app has been given access and Apple Health has recorded entries for those categories.
+      </div>
+    </details>
+
+    <details>
+      <summary>How is my Readiness Score calculated?</summary>
+      <div class="answer">
+        Your Readiness Score (0–100) is a weighted average of four categories: Sleep (30%), Recovery (25%), Activity (20%), and Body/Fitness (15%), plus a Consistency bonus (10%). You can adjust these weights in the <strong>Settings</strong> tab and see a live preview of how the change affects your score.
+      </div>
+    </details>
+
+    <details>
+      <summary>Does HealthMetrics upload my health data anywhere?</summary>
+      <div class="answer">
+        No. HealthMetrics is entirely on-device. All data is read from Apple Health and processed locally. Nothing is sent to any server, and no account is required to use the app.
+      </div>
+    </details>
+
+    <details>
+      <summary>How far back does the app show data?</summary>
+      <div class="answer">
+        HealthMetrics fetches up to 60 days of historical data from Apple Health. Trend charts show the last 7 or 30 days depending on the picker selection.
+      </div>
+    </details>
+
+    <details>
+      <summary>Why is my HRV or sleep data missing?</summary>
+      <div class="answer">
+        HRV and detailed sleep data require a compatible Apple Watch. If you wear your Apple Watch while sleeping and during rest, it will record the data that HealthMetrics needs. Make sure automatic sleep detection or sleep tracking is enabled in the Watch app or Health app on your iPhone.
+      </div>
+    </details>
+
+    <details>
+      <summary>How do I delete my data?</summary>
+      <div class="answer">
+        HealthMetrics does not store any data independently — it reads directly from Apple Health. To delete your health data, open the <strong>Health app → Browse → [category] → Show All Data → Edit → Delete</strong>. Deleting the HealthMetrics app removes the app itself and any locally cached preferences; all underlying health records remain in Apple Health until you delete them there.
+      </div>
+    </details>
+
+    <details>
+      <summary>The app crashed or something isn't working right. What should I do?</summary>
+      <div class="answer">
+        First, try closing and reopening the app. If the issue persists, try revoking and re-granting Health permissions in <strong>Settings → Health → Data Access &amp; Devices</strong>. If you're still experiencing problems, please contact us using the button below — include your iPhone model and iOS version so we can help quickly.
+      </div>
+    </details>
+
+    <!-- Contact -->
+    <h2>Contact Us</h2>
+    <div class="contact-card">
+      <h3>Get in touch</h3>
+      <p>We typically respond within 1–2 business days. Please include your iPhone model and iOS version to help us diagnose any issues faster.</p>
+      <a href="mailto:jonathan.r.hansen@gmail.com?subject=HealthMetrics%20Support">Email Support</a>
+    </div>
+
+    <!-- Privacy Policy -->
+    <h2>Privacy Policy</h2>
+    <div class="prose">
+      <p><strong>Last updated: July 2026</strong></p>
+      <p>HealthMetrics ("the app") is designed with privacy as a core principle. We do not collect, store, or share your personal health data.</p>
+      <p><strong>Data we access:</strong> The app requests read-only access to Apple Health categories including steps, heart rate, heart rate variability, sleep analysis, active energy, and workout records. This data is used solely to compute your Readiness Score and display trends within the app.</p>
+      <p><strong>Data storage:</strong> All data remains on your device. HealthMetrics does not operate any servers and does not transmit your health data over the internet.</p>
+      <p><strong>Third parties:</strong> We do not share data with any third parties. No analytics SDKs, advertising frameworks, or tracking libraries are included in the app.</p>
+      <p><strong>Children:</strong> HealthMetrics is not directed at children under 13.</p>
+      <p><strong>Changes:</strong> If this policy changes, the updated version will be posted at this URL with a revised date.</p>
+      <p>Questions? Contact us at <a href="mailto:jonathan.r.hansen@gmail.com" style="color:var(--teal)">jonathan.r.hansen@gmail.com</a>.</p>
+    </div>
+
+    <footer>
+      <span>© 2026 HealthMetrics</span>
+      <a href="index.html">Home</a>
+    </footer>
+  </div>
+</body>
+</html>
