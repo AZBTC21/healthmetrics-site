@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> — Support</title>
+  <title>VitalMtrx — Support</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -57,12 +57,11 @@
     .page-header p { color: var(--muted); font-size: 1rem; }
 
     h2 {
-      font-size: 1.1rem;
+      font-size: 0.8rem;
       font-weight: 700;
       color: var(--teal);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      font-size: 0.8rem;
       margin: 48px 0 16px;
     }
 
@@ -148,57 +147,71 @@
 <body>
   <div class="container">
     <nav>
-      <a class="logo" href="index.html">HealthMetrics</a>
+      <a class="logo" href="index.html">VitalMtrx</a>
       <a href="index.html">Home</a>
     </nav>
 
     <div class="page-header">
       <h1>Support</h1>
-      <p>Get help with HealthMetrics — answers to common questions and a direct line to reach us.</p>
+      <p>Get help with VitalMtrx — answers to common questions and a direct line to reach us.</p>
     </div>
 
     <!-- FAQ -->
     <h2>Frequently Asked Questions</h2>
 
     <details>
-      <summary>Why isn't HealthMetrics showing any data?</summary>
+      <summary>Why isn't VitalMtrx showing any data?</summary>
       <div class="answer">
-        HealthMetrics reads data from the Apple Health app. Make sure you have granted HealthMetrics permission to read Health data by going to <strong>Settings → Health → Data Access &amp; Devices → HealthMetrics</strong> and enabling the categories you want tracked. Data will appear after the app has been given access and Apple Health has recorded entries for those categories.
+        VitalMtrx reads data from the Apple Health app. Make sure you have granted VitalMtrx permission to read Health data by going to <strong>Settings → Health → Data Access &amp; Devices → VitalMtrx</strong> and enabling the categories you want tracked. Data will appear after the app has been given access and Apple Health has recorded entries for those categories.
       </div>
     </details>
 
     <details>
       <summary>How is my Readiness Score calculated?</summary>
       <div class="answer">
-        Your Readiness Score (0–100) is a weighted average of four categories: Sleep (30%), Recovery (25%), Activity (20%), and Body/Fitness (15%), plus a Consistency bonus (10%). You can adjust these weights in the <strong>Settings</strong> tab and see a live preview of how the change affects your score.
+        Your Readiness Score (0–100) is a weighted average of five categories: <strong>Sleep (30%)</strong>, <strong>Recovery (25%)</strong>, <strong>Activity (20%)</strong>, <strong>Body &amp; Fitness (15%)</strong>, and <strong>Consistency (10%)</strong>. You can adjust these weights in the <strong>Settings</strong> tab and see a live preview of how the change affects your score.
       </div>
     </details>
 
     <details>
-      <summary>Does HealthMetrics upload my health data anywhere?</summary>
+      <summary>How does the training recommendation work?</summary>
       <div class="answer">
-        No. HealthMetrics is entirely on-device. All data is read from Apple Health and processed locally. Nothing is sent to any server, and no account is required to use the app.
+        Each morning, VitalMtrx gives you one of four directives: <strong>Push Hard</strong>, <strong>Train Normally</strong>, <strong>Easy Day</strong>, or <strong>Rest &amp; Recover</strong>. Unlike the overall Readiness Score, the recommendation is based solely on your <strong>sleep quality and HRV</strong> — the signals captured before the day begins. This way, the recommendation is accurate even if you check it first thing in the morning before any activity has been recorded. The same recommendation appears on Apple Watch for a quick glance without opening the app.
+      </div>
+    </details>
+
+    <details>
+      <summary>Does VitalMtrx upload my health data anywhere?</summary>
+      <div class="answer">
+        No. VitalMtrx is entirely on-device. All data is read from Apple Health and processed locally. Nothing is sent to any server, and no account is required to use the app.
       </div>
     </details>
 
     <details>
       <summary>How far back does the app show data?</summary>
       <div class="answer">
-        HealthMetrics fetches up to 60 days of historical data from Apple Health. Trend charts show the last 7 or 30 days depending on the picker selection.
+        VitalMtrx fetches up to 60 days of health history. The Trends tab lets you view charts across 7, 30, 60, 90, or 180-day windows — longer periods show historical workout data and trend patterns.
       </div>
     </details>
 
     <details>
       <summary>Why is my HRV or sleep data missing?</summary>
       <div class="answer">
-        HRV and detailed sleep data require a compatible Apple Watch. If you wear your Apple Watch while sleeping and during rest, it will record the data that HealthMetrics needs. Make sure automatic sleep detection or sleep tracking is enabled in the Watch app or Health app on your iPhone.
+        HRV and detailed sleep data require a compatible Apple Watch. If you wear your Apple Watch while sleeping and during rest, it will record the data that VitalMtrx needs. Make sure automatic sleep detection or sleep tracking is enabled in the Watch app or Health app on your iPhone.
+      </div>
+    </details>
+
+    <details>
+      <summary>How does the Apple Watch companion work?</summary>
+      <div class="answer">
+        The VitalMtrx Watch app shows your Readiness Score, training recommendation, and all five component bars (Sleep, Recovery, Activity, Body, Consistency) directly on your wrist. Data is sent from your iPhone to the Watch automatically when both devices are nearby. The Watch complication lets you see your score at a glance from any watch face.
       </div>
     </details>
 
     <details>
       <summary>How do I delete my data?</summary>
       <div class="answer">
-        HealthMetrics does not store any data independently — it reads directly from Apple Health. To delete your health data, open the <strong>Health app → Browse → [category] → Show All Data → Edit → Delete</strong>. Deleting the HealthMetrics app removes the app itself and any locally cached preferences; all underlying health records remain in Apple Health until you delete them there.
+        VitalMtrx does not store any data independently — it reads directly from Apple Health. To delete your health data, open the <strong>Health app → Browse → [category] → Show All Data → Edit → Delete</strong>. Deleting the VitalMtrx app removes the app itself and any locally cached preferences; all underlying health records remain in Apple Health until you delete them there.
       </div>
     </details>
 
@@ -214,24 +227,24 @@
     <div class="contact-card">
       <h3>Get in touch</h3>
       <p>We typically respond within 1–2 business days. Please include your iPhone model and iOS version to help us diagnose any issues faster.</p>
-      <a href="mailto:jonathan.r.hansen@gmail.com?subject=HealthMetrics%20Support">Email Support</a>
+      <a href="mailto:jonathan.r.hansen@gmail.com?subject=VitalMtrx%20Support">Email Support</a>
     </div>
 
     <!-- Privacy Policy -->
     <h2>Privacy Policy</h2>
     <div class="prose">
-      <p><strong>Last updated: July 2026</strong></p>
-      <p>HealthMetrics ("the app") is designed with privacy as a core principle. We do not collect, store, or share your personal health data.</p>
-      <p><strong>Data we access:</strong> The app requests read-only access to Apple Health categories including steps, heart rate, heart rate variability, sleep analysis, active energy, and workout records. This data is used solely to compute your Readiness Score and display trends within the app.</p>
-      <p><strong>Data storage:</strong> All data remains on your device. HealthMetrics does not operate any servers and does not transmit your health data over the internet.</p>
+      <p><strong>Last updated: August 2026</strong></p>
+      <p>VitalMtrx ("the app") is designed with privacy as a core principle. We do not collect, store, or share your personal health data.</p>
+      <p><strong>Data we access:</strong> The app requests read-only access to Apple Health categories including steps, heart rate, heart rate variability, sleep analysis, active energy, respiratory rate, blood oxygen, wrist temperature, body composition, and workout records. This data is used solely to compute your Readiness Score, training recommendation, and display trends within the app.</p>
+      <p><strong>Data storage:</strong> All data remains on your device. VitalMtrx does not operate any servers and does not transmit your health data over the internet.</p>
       <p><strong>Third parties:</strong> We do not share data with any third parties. No analytics SDKs, advertising frameworks, or tracking libraries are included in the app.</p>
-      <p><strong>Children:</strong> HealthMetrics is not directed at children under 13.</p>
+      <p><strong>Children:</strong> VitalMtrx is not directed at children under 13.</p>
       <p><strong>Changes:</strong> If this policy changes, the updated version will be posted at this URL with a revised date.</p>
       <p>Questions? Contact us at <a href="mailto:jonathan.r.hansen@gmail.com" style="color:var(--teal)">jonathan.r.hansen@gmail.com</a>.</p>
     </div>
 
     <footer>
-      <span>© 2026 HealthMetrics</span>
+      <span>© 2026 VitalMtrx</span>
       <a href="index.html">Home</a>
     </footer>
   </div>
