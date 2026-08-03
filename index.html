@@ -11,6 +11,7 @@
       --teal: #2dd4bf;
       --purple: #a78bfa;
       --orange: #fb923c;
+      --green: #34d399;
       --bg: #08090f;
       --card: rgba(255,255,255,0.05);
       --border: rgba(255,255,255,0.08);
@@ -26,7 +27,6 @@
       min-height: 100vh;
     }
 
-    /* Background glow */
     body::before {
       content: "";
       position: fixed;
@@ -89,7 +89,7 @@
     .subtitle {
       font-size: 1.15rem;
       color: var(--muted);
-      max-width: 520px;
+      max-width: 540px;
       margin: 0 auto 36px;
     }
     .cta {
@@ -107,38 +107,64 @@
     }
     .cta:hover { opacity: 0.88; transform: translateY(-1px); }
 
-    /* App preview placeholder */
+    /* App preview */
     .preview {
       margin: 56px auto 0;
-      max-width: 320px;
+      max-width: 300px;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 40px;
-      padding: 48px 32px;
+      padding: 40px 28px 32px;
       text-align: center;
-      color: var(--muted);
-      font-size: 0.85rem;
     }
     .ring {
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
       border: 10px solid var(--card);
       border-top-color: var(--teal);
       border-right-color: var(--purple);
-      margin: 0 auto 16px;
+      margin: 0 auto 14px;
       position: relative;
     }
     .ring-score {
       position: absolute;
       inset: 0;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--text);
+      gap: 2px;
     }
+    .ring-score-num { font-size: 1.9rem; font-weight: 800; color: var(--text); line-height: 1; }
+    .ring-score-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; color: var(--teal); text-transform: uppercase; }
+    .preview-pills {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin: 10px 0 14px;
+    }
+    .preview-pill {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.07);
+      color: var(--muted);
+    }
+    .preview-rec {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: rgba(251,146,60,0.12);
+      border-radius: 10px;
+      padding: 8px 12px;
+      margin-top: 4px;
+    }
+    .preview-rec-label { font-size: 0.72rem; color: var(--muted); font-weight: 500; }
+    .preview-rec-value { font-size: 0.8rem; font-weight: 700; color: var(--orange); }
 
     /* Features */
     .features { padding: 80px 0; }
@@ -170,16 +196,30 @@
       padding: 28px;
       backdrop-filter: blur(12px);
     }
-    .card-icon {
-      font-size: 1.8rem;
-      margin-bottom: 14px;
-    }
-    .card h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
+    .card-icon { font-size: 1.8rem; margin-bottom: 14px; }
+    .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
     .card p { font-size: 0.88rem; color: var(--muted); }
+
+    /* Platform badges */
+    .platforms {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 0 0 80px;
+    }
+    .platform-badge {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 18px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
 
     /* Privacy */
     .privacy-banner {
@@ -217,9 +257,9 @@
     </nav>
 
     <section class="hero">
-      <div class="badge">Available on iOS</div>
-      <h1>Know how your<br>body is performing</h1>
-      <p class="subtitle">VitalMtrx turns your Apple Health data into a single daily Readiness Score — so you can train smarter, sleep better, and recover faster.</p>
+      <div class="badge">Available on iOS &amp; Apple Watch</div>
+      <h1>Know exactly how hard<br>to train today</h1>
+      <p class="subtitle">VitalMtrx turns your Apple Health data into a daily Readiness Score and a clear training directive — Push Hard, Train Normally, Easy Day, or Rest — so you stop guessing and start performing.</p>
       <a class="cta" href="#">
         <!-- Replace # with your App Store link -->
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
@@ -228,10 +268,22 @@
 
       <div class="preview">
         <div class="ring">
-          <div class="ring-score">82</div>
+          <div class="ring-score">
+            <span class="ring-score-num">82</span>
+            <span class="ring-score-label">Good</span>
+          </div>
         </div>
-        <strong style="color:var(--text)">Today's Readiness</strong><br>
-        Sleep · Recovery · Activity · Fitness
+        <div class="preview-pills">
+          <span class="preview-pill" style="color:#a78bfa">Sleep 85</span>
+          <span class="preview-pill" style="color:#2dd4bf">Recovery 79</span>
+          <span class="preview-pill" style="color:#fb923c">Activity 74</span>
+          <span class="preview-pill" style="color:#34d399">Body 88</span>
+          <span class="preview-pill">Consist. 71</span>
+        </div>
+        <div class="preview-rec">
+          <span class="preview-rec-label">TODAY'S RECOMMENDATION</span>
+          <span class="preview-rec-value">🏃 Train Normally</span>
+        </div>
       </div>
     </section>
 
@@ -241,41 +293,58 @@
 
       <div class="grid">
         <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Daily Training Recommendation</h3>
+          <p>Each morning, get a clear directive — Push Hard, Train Normally, Easy Day, or Rest — based on your sleep and HRV, not just a vague score.</p>
+        </div>
+        <div class="card">
           <div class="card-icon">🏅</div>
-          <h3>Daily Readiness Score</h3>
-          <p>A single 0–100 score built from sleep, recovery, activity, and fitness — personalized with your own weights.</p>
+          <h3>5-Component Readiness Score</h3>
+          <p>A single 0–100 score built from sleep, recovery, activity, body metrics, and consistency — with customizable weights so it reflects your priorities.</p>
         </div>
         <div class="card">
           <div class="card-icon">😴</div>
-          <h3>Sleep & Recovery</h3>
-          <p>Track sleep duration and heart rate variability trends to understand how well you're actually recovering.</p>
+          <h3>Sleep &amp; HRV Tracking</h3>
+          <p>Track sleep stages, efficiency, and heart rate variability trends to understand how well your body is actually recovering overnight.</p>
         </div>
         <div class="card">
           <div class="card-icon">📈</div>
-          <h3>Trends & Charts</h3>
-          <p>7-day and 30-day trend charts across all metrics, powered by Swift Charts for a clear picture over time.</p>
+          <h3>Deep Trends &amp; Charts</h3>
+          <p>Up to 180 days of trend charts across all metrics. Activity analytics include workout heat maps, training time breakdown, and distance by type.</p>
         </div>
         <div class="card">
           <div class="card-icon">💡</div>
           <h3>Personalized Insights</h3>
-          <p>Correlation analysis and smart insights explain what's actually driving your score up or down.</p>
+          <p>Correlation analysis and smart insights explain what's actually driving your score up or down each day.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">⌚</div>
+          <h3>Apple Watch &amp; Widgets</h3>
+          <p>Glance at your score and training recommendation right from your wrist or Home Screen — no need to open the app.</p>
         </div>
         <div class="card">
           <div class="card-icon">🏋️</div>
-          <h3>Workout History</h3>
-          <p>Review past workouts alongside your health trends to see how training load affects your readiness.</p>
+          <h3>Workout Analytics</h3>
+          <p>Review training time by type, distance trends, active day streaks, and weekly volume — all synced from Apple Health automatically.</p>
         </div>
         <div class="card">
           <div class="card-icon">⚙️</div>
-          <h3>Customizable Weights</h3>
-          <p>Adjust how much sleep, recovery, activity, and fitness contribute to your score — with a live preview.</p>
+          <h3>Customizable Layout</h3>
+          <p>Reorder and hide sections on the Today tab so the metrics that matter most to you are always front and center.</p>
         </div>
       </div>
     </section>
 
+    <div class="platforms">
+      <div class="platform-badge">📱 iPhone</div>
+      <div class="platform-badge">⌚ Apple Watch</div>
+      <div class="platform-badge">🖥 iPad</div>
+      <div class="platform-badge">🔲 Home Screen Widget</div>
+    </div>
+
     <div class="privacy-banner">
       <h3>🔒 Your data never leaves your device</h3>
-      <p>VitalMtrx reads from Apple Health and stores everything locally. No account required. No data sold. Ever.</p>
+      <p>VitalMtrx reads from Apple Health and stores everything locally. No account required. No subscription. No data sold. Ever.</p>
     </div>
 
     <footer>
