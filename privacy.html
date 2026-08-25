@@ -1,0 +1,130 @@
+Priva<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VitalMtrx — Privacy Policy</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal: #2dd4bf;
+      --purple: #a78bfa;
+      --bg: #08090f;
+      --card: rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.08);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 40% at 15% 15%, rgba(45,212,191,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 85% 25%, rgba(167,139,250,0.08) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+    }
+    .logo { font-size: 1.1rem; font-weight: 700; color: var(--teal); letter-spacing: -0.02em; text-decoration: none; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+    nav a:hover { color: var(--text); }
+
+    .page-header { padding: 48px 0 40px; }
+    .page-header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+    .page-header p { color: var(--muted); font-size: 1rem; }
+
+    h2 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin: 36px 0 12px;
+    }
+
+    .prose { font-size: 0.9rem; color: var(--muted); line-height: 1.8; margin-bottom: 48px; }
+    .prose p { margin-bottom: 12px; }
+    .prose strong { color: var(--text); }
+    .prose a { color: var(--teal); text-decoration: none; }
+    .prose a:hover { text-decoration: underline; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a class="logo" href="index.html">VitalMtrx</a>
+      <a href="support.html">Support</a>
+    </nav>
+
+    <div class="page-header">
+      <h1>Privacy Policy</h1>
+      <p>Last updated August 25, 2026. This is the same policy shown in the VitalMtrx app.</p>
+    </div>
+
+    <div class="prose">
+      <h2>Apple Health data we read</h2>
+      <p>VitalMtrx requests <strong>read-only</strong> access to Apple Health (HealthKit). Depending on what you have recorded and what you allow, that can include sleep, heart and recovery metrics, activity (steps, calories, distance, stand hours), workouts and GPS routes, body and fitness measures such as weight and VO<sub>2</sub> max, and rhythm-related data (including AFib burden or irregular-rhythm events) <strong>only when those metrics appear in the app</strong>. We use this data to compute your readiness score, trends, insights, and workout details on your device.</p>
+
+      <h2>What we do not do</h2>
+      <p>VitalMtrx does <strong>not</strong> write to Apple Health. There are no accounts, no VitalMtrx servers, and no sale of your data. Health information is not uploaded to us. You do not create a VitalMtrx login.</p>
+
+      <h2>Where data lives</h2>
+      <p>Health snapshots stay <strong>on this device</strong> as local cache files in the app’s Documents folder. Settings (units, goals, score weights, and similar preferences) are stored in UserDefaults on the device. If you use the Apple Watch app or Home Screen / Lock Screen widgets, a small readiness snapshot is shared through an App Group on your devices so those surfaces can update without sending data to VitalMtrx.</p>
+
+      <h2>Optional features</h2>
+      <p>If you enable notifications, scheduling stays on-device (for example morning readiness or workout recap reminders). If you save a share card, VitalMtrx may add an image to Photos using <strong>add-only</strong> access — it does not read your library. If you turn on AI Insights, summaries run <strong>on-device</strong> with Apple Intelligence and are not sent to VitalMtrx.</p>
+
+      <h2>How to stop</h2>
+      <p>Revoke VitalMtrx in the Health app to stop new HealthKit reads. Deleting VitalMtrx removes the app and its local cache from that device. Watch and widget data in the App Group is removed when you delete the app (or the Watch app) from the device.</p>
+
+      <h2>Changes</h2>
+      <p>We may update this policy as the app changes. This version was last updated on August 25, 2026. Continued use after an in-app update means you accept the revised policy. Review it in Settings whenever you like.</p>
+
+      <h2>Operator and contact</h2>
+      <p>VitalMtrx is operated by Jonathan Hansen in the United States. Questions about this policy: <a href="mailto:Jonathan.R.Hansen@gmail.com">Jonathan.R.Hansen@gmail.com</a>.</p>
+    </div>
+
+    <footer>
+      <span>© 2026 VitalMtrx</span>
+      <a href="index.html">Home</a>
+    </footer>
+  </div>
+</body>
+</html>
