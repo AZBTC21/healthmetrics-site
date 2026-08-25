@@ -148,7 +148,11 @@
   <div class="container">
     <nav>
       <a class="logo" href="index.html">VitalMtrx</a>
+      <span>
       <a href="index.html">Home</a>
+      &nbsp;·&nbsp;
+      <a href="privacy.html">Privacy</a>
+      </span>
     </nav>
 
     <div class="page-header">
@@ -211,7 +215,7 @@
     <details>
       <summary>How do I delete my data?</summary>
       <div class="answer">
-        VitalMtrx does not store any data independently — it reads directly from Apple Health. To delete your health data, open the <strong>Health app → Browse → [category] → Show All Data → Edit → Delete</strong>. Deleting the VitalMtrx app removes the app itself and any locally cached preferences; all underlying health records remain in Apple Health until you delete them there.
+        VitalMtrx reads from Apple Health and keeps a local cache on your device. To delete Health records themselves, open the <strong>Health app → Browse → [category] → Show All Data → Edit → Delete</strong>. Revoke VitalMtrx in the Health app to stop new HealthKit reads. Deleting VitalMtrx removes the app and its local cache from that device; underlying health records remain in Apple Health until you delete them there. <strong>Health app → Browse → [category] → Show All Data → Edit → Delete</strong>. Deleting the VitalMtrx app removes the app itself and any locally cached preferences; all underlying health records remain in Apple Health until you delete them there.
       </div>
     </details>
 
@@ -231,21 +235,22 @@
     </div>
 
     <!-- Privacy Policy -->
-    <h2>Privacy Policy</h2>
-    <div class="prose">
-      <p><strong>Last updated: August 2026</strong></p>
-      <p>VitalMtrx ("the app") is designed with privacy as a core principle. We do not collect, store, or share your personal health data.</p>
-      <p><strong>Data we access:</strong> The app requests read-only access to Apple Health categories including steps, heart rate, heart rate variability, sleep analysis, active energy, respiratory rate, blood oxygen, wrist temperature, body composition, and workout records. This data is used solely to compute your Readiness Score, training recommendation, and display trends within the app.</p>
-      <p><strong>Data storage:</strong> All data remains on your device. VitalMtrx does not operate any servers and does not transmit your health data over the internet.</p>
-      <p><strong>Third parties:</strong> We do not share data with any third parties. No analytics SDKs, advertising frameworks, or tracking libraries are included in the app.</p>
-      <p><strong>Children:</strong> VitalMtrx is not directed at children under 13.</p>
-      <p><strong>Changes:</strong> If this policy changes, the updated version will be posted at this URL with a revised date.</p>
-      <p>Questions? Contact us at <a href="mailto:jonathan.r.hansen@gmail.com" style="color:var(--teal)">jonathan.r.hansen@gmail.com</a>.</p>
-    </div>
+<h2>Privacy Policy</h2>
+<div class="prose">
+  <p><strong>Last updated: August 25, 2026</strong> — same policy as in the VitalMtrx app. Full page: <a href="privacy.html">privacy.html</a>.</p>
+  <p><strong>Apple Health data we read.</strong> VitalMtrx requests <strong>read-only</strong> access to Apple Health (HealthKit). Depending on what you have recorded and what you allow, that can include sleep, heart and recovery metrics, activity (steps, calories, distance, stand hours), workouts and GPS routes, body and fitness measures such as weight and VO<sub>2</sub> max, and rhythm-related data (including AFib burden or irregular-rhythm events) <strong>only when those metrics appear in the app</strong>. We use this data to compute your readiness score, trends, insights, and workout details on your device.</p>
+  <p><strong>What we do not do.</strong> VitalMtrx does <strong>not</strong> write to Apple Health. There are no accounts, no VitalMtrx servers, and no sale of your data. Health information is not uploaded to us. You do not create a VitalMtrx login.</p>
+  <p><strong>Where data lives.</strong> Health snapshots stay <strong>on this device</strong> as local cache files in the app’s Documents folder. Settings (units, goals, score weights, and similar preferences) are stored in UserDefaults on the device. If you use the Apple Watch app or Home Screen / Lock Screen widgets, a small readiness snapshot is shared through an App Group on your devices so those surfaces can update without sending data to VitalMtrx.</p>
+  <p><strong>Optional features.</strong> If you enable notifications, scheduling stays on-device (for example morning readiness or workout recap reminders). If you save a share card, VitalMtrx may add an image to Photos using <strong>add-only</strong> access — it does not read your library. If you turn on AI Insights, summaries run <strong>on-device</strong> with Apple Intelligence and are not sent to VitalMtrx.</p>
+  <p><strong>How to stop.</strong> Revoke VitalMtrx in the Health app to stop new HealthKit reads. Deleting VitalMtrx removes the app and its local cache from that device. Watch and widget data in the App Group is removed when you delete the app (or the Watch app) from the device.</p>
+  <p><strong>Changes.</strong> We may update this policy as the app changes. This version was last updated on August 25, 2026. Continued use after an in-app update means you accept the revised policy. Review it in Settings whenever you like.</p>
+  <p><strong>Operator and contact.</strong> VitalMtrx is operated by Jonathan Hansen in the United States. Questions about this policy: <a href="mailto:Jonathan.R.Hansen@gmail.com" style="color:var(--teal)">Jonathan.R.Hansen@gmail.com</a>.</p>
+</div>
 
     <footer>
       <span>© 2026 VitalMtrx</span>
       <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
     </footer>
   </div>
 </body>
